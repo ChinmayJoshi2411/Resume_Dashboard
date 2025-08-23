@@ -14,7 +14,7 @@ section = st.sidebar.radio("Go to:", ["About Me", "Experience", "Projects", "Cer
 if section == "About Me":
     st.header("👨‍💻 About Me")
     st.write("""
-    I am a Data Engineer with 2.4 years of experience in developing **ETL pipelines**, 
+    I am a Data Engineer with 2.8 years of experience in developing **ETL pipelines**, 
     real-time data processing, and automation using **Python, SQL, PySpark, Airflow, and Cloud platforms (AWS, Cloudera)**.  
     Skilled in designing scalable data pipelines, query optimization, and ensuring 99.9% uptime across distributed systems.  
     """)
