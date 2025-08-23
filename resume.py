@@ -12,12 +12,32 @@ section = st.sidebar.radio("Go to:", ["About Me", "Experience", "Projects", "Cer
 
 # --- About Me ---
 if section == "About Me":
-    st.header("👨‍💻 About Me")
+    # About Me
+    st.markdown("## 👨‍💻 About Me")
     st.write("""
-    I am a Data Engineer with 2.8 years of experience in developing **ETL pipelines**, 
-    real-time data processing, and automation using **Python, SQL, PySpark, Airflow, and Cloud platforms (AWS, Cloudera)**.  
-    Skilled in designing scalable data pipelines, query optimization, and ensuring 99.9% uptime across distributed systems.  
+    Hello! I'm **Chinmay Joshi**, a passionate and results-driven **Data Engineer** with over **2.4 years of experience** 
+    building scalable data pipelines, automating workflows, and working with **big data technologies**.
+
+    I specialize in designing and maintaining **ETL processes**, ensuring seamless data ingestion, transformation, 
+    and integration across diverse systems. My expertise spans across **SQL, Python, PySpark, Airflow, Kafka, Hadoop, Spark, and AWS**, 
+    with strong hands-on experience in **data warehousing** and **real-time streaming pipelines**.
+
+    Some highlights of my journey so far:
+    - ⚡ Improved data pipeline efficiency by **60%** through automation and optimization.  
+    - 📊 Optimized query performance by **20%**, ensuring fast analytics and reporting.  
+    - 🔒 Maintained **99.9% system uptime** for large-scale security systems across India.  
+    - 🛠 Worked on projects ranging from **Netflix Analytics ETL** to **real-time ingestion with Kafka & Spark on AWS**.  
+
+    Beyond my technical skills, I’m an **adaptable problem solver** who enjoys collaborating with teams, 
+    exploring **cloud platforms** (AWS & Azure), and staying up-to-date with modern **data engineering practices**.  
+    Currently, I’m also diving deeper into **LLM use cases** and their integration with data engineering.  
+
+    🎵 Outside of my professional world, I am also a **musician** – I love to **sing** and play the **Tabla**, 
+    blending rhythm and melody into my creative journey.  
+
+    🌐 I enjoy learning emerging tech, experimenting with automation, and sharing knowledge with peers.  
     """)
+
 
 # --- Experience ---
 elif section == "Experience":
