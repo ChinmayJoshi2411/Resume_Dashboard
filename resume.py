@@ -1,101 +1,94 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
-from datetime import datetime
-import math
 
-# Page configuration
-st.set_page_config(page_title="Chinmay Joshi - Interactive Resume", layout="wide")
+# Page config
+st.set_page_config(page_title="Chinmay Joshi - Resume Dashboard", layout="wide")
 
-# Header
-st.title("🧐 Chinmay Joshi - Data Engineer")
+# Title
+st.title("📊 Resume Dashboard - Chinmay Joshi")
 
-# Calculate dynamic experience duration
-joining_date = datetime(2022, 12, 20)
-today = datetime.today()
-duration_years = (today - joining_date).days / 365.25
-rounded_duration = math.ceil(duration_years * 10) / 10  # round up to next nearest decimal
-formatted_duration = f"{rounded_duration:.1f} years"
+# --- Sidebar ---
+st.sidebar.title("Navigation")
+section = st.sidebar.radio("Go to:", ["About Me", "Experience", "Projects", "Certifications", "Contact"])
 
-st.write(f"Results-driven Data Engineer with {formatted_duration} of experience at Jio Platforms Ltd., specializing in data pipeline development, ETL workflows, and real-time data processing. Proficient in SQL, Python, PySpark, Apache Airflow, and Spark, with a strong focus on optimizing data workflows for efficiency and reliability. Successfully improved pipeline efficiency by 60%, enhanced query performance by 20%, and ensured 99.9% uptime. Currently pursuing Microsoft Azure Cloud Fundamentals to strengthen expertise in cloud-based data solutions.")
+# --- About Me ---
+if section == "About Me":
+    st.header("👨‍💻 About Me")
+    st.write("""
+    I am a Data Engineer with 2.4 years of experience in developing **ETL pipelines**, 
+    real-time data processing, and automation using **Python, SQL, PySpark, Airflow, and Cloud platforms (AWS, Cloudera)**.  
+    Skilled in designing scalable data pipelines, query optimization, and ensuring 99.9% uptime across distributed systems.  
+    """)
 
-# Sidebar with contact details
-st.sidebar.header("📬 Contact")
-st.sidebar.write("📧 Email: chinmaytj241100@gmail.com")
-st.sidebar.write("🔗 [LinkedIn](https://www.linkedin.com/in/chinmay-joshi-7495741b1/)")
-st.sidebar.write("📁 [GitHub](https://github.com/ChinmayJoshi2411)")
+# --- Experience ---
+elif section == "Experience":
+    st.header("💼 Experience")
+    st.subheader("Data Engineer - Jio Platforms Ltd (2.4 years)")
+    st.write("""
+    - Built **scalable ETL pipelines** for security systems across India.  
+    - Improved **pipeline efficiency by 60%** and query performance by 20%.  
+    - Worked with **Cloudera, Hadoop, Kafka, Spark, Airflow, Docker**.  
+    - Ensured **99.9% uptime** with automation for monitoring and ticketing.  
+    """)
 
-# Experience Section
-st.subheader("💼 Work Experience")
-experience = pd.DataFrame({
-    "Role": ["Data Engineer"],
-    "Company": ["Jio Platforms Ltd"],
-    "Duration": [formatted_duration],
-    "Technologies Used": ["Python, SQL, PySpark, Apache Airflow, Kafka"]
-})
-st.table(experience)
+# --- Projects ---
+elif section == "Projects":
+    st.header("🚀 Projects")
+    st.subheader("Amazon Music ETL Pipeline")
+    st.write("""
+    - Built an ETL pipeline with **Kafka, Spark, S3, Redshift, Glue, and Airflow**.  
+    - Processed streaming data and transformed it into analytics-ready format.  
+    """)
+    
+    st.subheader("Netflix Data Analysis with PySpark & Power BI")
+    st.write("""
+    - Used **PySpark** for transformations and created an interactive **Power BI dashboard**.  
+    - Analyzed global viewing trends and content distribution.  
+    """)
+    
+    st.subheader("College Admission Eligibility Checker")
+    st.write("""
+    - Developed a **FastAPI-based system** with SQLite, Pandas, NumPy, and Regex.  
+    - Implemented robust input validation, logging, and exception handling.  
+    """)
 
-# Skills Section
-st.subheader("🛠️ Skills")
-skills = pd.DataFrame({
-    "Skills": ["Python", "SQL", "PySpark", "Apache Airflow", "ETL", "Data Warehousing", "Kafka"],
-    "Proficiency": [90, 85, 75, 80, 85, 70, 65]
-})
-fig_skills = px.bar(skills, x="Skills", y="Proficiency", text_auto=True, title="Skill Proficiency")
-st.plotly_chart(fig_skills, use_container_width=True)
+# --- Certifications ---
+elif section == "Certifications":
+    st.header("📜 Certifications")
+    
+    # IBM Certification
+    st.subheader("IBM Data Engineering Professional Certificate")
+    st.write("""
+    A comprehensive certification consisting of **13 individual courses** and a **combined capstone certificate**.  
+    This program covered **Relational Databases, SQL, ETL, Data Warehousing, Big Data, Spark, Airflow, and BI tools**.
+    """)
+    
+    st.markdown("🔗 [View Combined Certificate](https://coursera.org/verify/professional-cert/IZ9BU2H5LC97)")
+    
+    st.write("### Individual Courses (13 Certificates):")
+    cert_links = [
+        ("Introduction to Data Engineering", "https://coursera.org/verify/Z7X2UUTTX6PN"),
+        ("Python for Data Science, AI & Development", "https://coursera.org/verify/FHE6AWSYE6V4"),
+        ("Python Project for Data Engineering", "https://coursera.org/verify/W5AZCBUVVD3X"),
+        ("Introduction to Relational Databases (RDBMS)", "https://coursera.org/verify/265SSIZRKIO4"),
+        ("Databases and SQL for Data Science with Python", "https://coursera.org/verify/D09621KM4K2O"),
+        ("Hands-on Introduction to Linux Commands and Shell Scripting", "https://coursera.org/verify/W5VOW1CRRAU8"),
+        ("Relational Database Administration (DBA)", "https://coursera.org/verify/G9WO12ZEOKMM"),
+        ("ETL and Data Pipelines with Shell, Airflow and Kafka", "https://coursera.org/verify/8TYRHD7NLLXW"),
+        ("Getting Started with Data Warehousing and BI Analytics", "https://coursera.org/verify/22MBVXNTCWNU"),
+        ("Introduction to Big Data with Spark and Hadoop", "https://coursera.org/verify/MFDAESEJCXLA"),
+        ("Data Engineering and Machine Learning using Spark", "https://coursera.org/verify/FZD5TEQNCPLE"),
+        ("Data Engineering Capstone Project", "https://coursera.org/verify/BFGKDX7E3582"),
+        ("Data Engineering Professional Certificate (Completion)", "https://coursera.org/verify/L13GKXN0NW8Q"),
+    ]
+    
+    for course, link in cert_links:
+        st.markdown(f"- [{course}]({link})")
 
-# Certifications
-st.subheader("📜 Certifications")
-st.write("✔️ Microsoft Azure Fundamentals (In Progress)")
-st.write("✔️ IBM Data Engineering Professional Certificate")
-
-# Projects Section
-st.subheader("🚀 Projects")
-
-st.markdown("""
-#### 🔹 Netflix Dataset Analysis  
-Analyzed global content trends on Netflix using PySpark. Built an interactive dashboard in Power BI showcasing insights like content type distribution, country-wise availability, and genre trends. SQLite was used for structured data storage.
-
-**Technologies Used**: PySpark, Power BI, SQLite  
-**Skills Demonstrated**: Data cleaning, transformation, visualization, analytical storytelling.
-
----
-
-#### 🔹 Real-time Weather ETL Pipeline  
-Implemented a real-time ETL pipeline using the OpenWeather API. Ingested historical and current weather data, transformed it using Spark, and stored it in SQLite for downstream analysis.
-
-**Technologies Used**: OpenWeather API, Spark, SQLite  
-**Skills Demonstrated**: Real-time ingestion, REST API interaction, ETL orchestration.
-
----
-
-#### 🔹 Kafka-based Real-time Streaming Pipeline  
-Created a secure streaming data pipeline using Apache Kafka with SSL/TLS encryption. Ensured reliable data ingestion and transformation for multiple sources in a real-time environment.
-
-**Technologies Used**: Apache Kafka, SSL/TLS, Python  
-**Skills Demonstrated**: Secure data streaming, message broker setup, real-time processing.
-
----
-
-#### 🔹 Automated ETL Pipeline with Apache Airflow  
-Developed and automated an end-to-end ETL pipeline using Apache Airflow. Included retry logic, error handling, and email alerts. Scheduled jobs processed large-scale data sets daily with performance monitoring.
-
-**Technologies Used**: Apache Airflow, Python, Bash  
-**Skills Demonstrated**: Workflow automation, DAG design, error handling, scheduling.
-
----
-
-#### 🔹 Consumer Analytics ETL Project  
-Built a star schema-based data warehouse for a consumer electronics retail company. Created dimension and fact tables in PostgreSQL and optimized query performance using materialized views.
-
-**Technologies Used**: PostgreSQL, Data Warehousing, SQL  
-**Skills Demonstrated**: Schema design, query optimization, analytics readiness.
-""")
-
-# Education
-st.subheader("🎓 Education")
-st.write("Bachelor of Engineering in Computer Science (79.01%, CGPA 8.35) - RTM University, Nagpur")
-
-# Footer
-st.write("---")
-st.write("🔹 *Interactive resume built using Streamlit* 🔹")
+# --- Contact ---
+elif section == "Contact":
+    st.header("📬 Contact")
+    st.write("""
+    - 📧 Email: chinmay.joshi@example.com  
+    - 💼 LinkedIn: [linkedin.com/in/chinmayjoshi](https://linkedin.com/in/chinmayjoshi)  
+    - 🐙 GitHub: [github.com/ChinmayJoshi2411](https://github.com/ChinmayJoshi2411)  
+    """)
