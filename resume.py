@@ -42,7 +42,7 @@ if section == "About Me":
 # --- Experience ---
 elif section == "Experience":
     st.header("💼 Experience")
-    st.subheader("Data Engineer - Jio Platforms Ltd (2.4 years)")
+    st.subheader("Data Engineer - Jio Platforms Ltd (2.8 years)")
     st.write("""
     - Built **scalable ETL pipelines** for security systems across India.  
     - Improved **pipeline efficiency by 60%** and query performance by 20%.  
