@@ -3,11 +3,27 @@ import streamlit as st
 # Page config
 st.set_page_config(page_title="Chinmay Joshi - Resume Dashboard", layout="wide")
 
+# Add custom CSS for circular profile image
+st.markdown(
+    """
+    <style>
+        .sidebar-img img {
+            border-radius: 50%;
+            border: 3px solid #4CAF50;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Title
-st.title("📊 Chinmay Joshi")
+st.title("Chinmay Joshi")
 
 # --- Sidebar ---
+st.sidebar.markdown('<div class="sidebar-img">', unsafe_allow_html=True)
 st.sidebar.image("images/profile.png", width=180)
+st.sidebar.markdown('</div>', unsafe_allow_html=True)
+
 st.sidebar.title("Navigation")
 section = st.sidebar.radio("Go to:", ["About Me", "Experience", "Projects", "Certifications", "Contact"])
 
@@ -44,6 +60,7 @@ if section == "About Me":
 
     🌐 I enjoy learning emerging tech, experimenting with automation, and sharing knowledge with peers.  
     """)
+
 
 
 # --- Experience ---
