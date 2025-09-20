@@ -4,9 +4,10 @@ import streamlit as st
 st.set_page_config(page_title="Chinmay Joshi - Resume Dashboard", layout="wide")
 
 # Title
-st.title("📊 Resume Dashboard - Chinmay Joshi")
+st.title("📊 Chinmay Joshi")
 
 # --- Sidebar ---
+st.sidebar.image("images/profile.png", width=180)
 st.sidebar.title("Navigation")
 section = st.sidebar.radio("Go to:", ["About Me", "Experience", "Projects", "Certifications", "Contact"])
 
@@ -15,21 +16,27 @@ if section == "About Me":
     # About Me
     st.markdown("## 👨‍💻 About Me")
     st.write("""
-    Hello! I'm **Chinmay Joshi**, a passionate and results-driven **Data Engineer** with over **2.4 years of experience** 
+    Hello! I'm **Chinmay Joshi**, a passionate and results-driven **Data Engineer** with over **2.8 years of experience** 
     building scalable data pipelines, automating workflows, and working with **big data technologies**.
 
     I specialize in designing and maintaining **ETL processes**, ensuring seamless data ingestion, transformation, 
     and integration across diverse systems. My expertise spans across **SQL, Python, PySpark, Airflow, Kafka, Hadoop, Spark, and AWS**, 
     with strong hands-on experience in **data warehousing** and **real-time streaming pipelines**.
 
-    Some highlights of my journey so far:
-    - ⚡ Improved data pipeline efficiency by **60%** through automation and optimization.  
-    - 📊 Optimized query performance by **20%**, ensuring fast analytics and reporting.  
-    - 🔒 Maintained **99.9% system uptime** for large-scale security systems across India.  
-    - 🛠 Worked on projects ranging from **Netflix Analytics ETL** to **real-time ingestion with Kafka & Spark on AWS**.  
+    ### 💼 Professional Journey
+    - 🚀 **Data Engineer at Reserve Bank Information Technology(ReBIT) (Aug 2025 – Present)**  
+      Contributing to secure, large-scale **data engineering initiatives** for financial systems, 
+      with a focus on **scalability, compliance, and automation**.  
 
-    Beyond my technical skills, I’m an **adaptable problem solver** who enjoys collaborating with teams, 
-    exploring **cloud platforms** (AWS & Azure), and staying up-to-date with modern **data engineering practices**.  
+    - 🏢 **Data Engineer at Jio Platforms Ltd. (Dec 2022 – Aug 2025)**  
+      - ⚡ Improved data pipeline efficiency by **60%** through automation and optimization.  
+      - 📊 Optimized query performance by **20%**, ensuring fast analytics and reporting.  
+      - 🔒 Maintained **99.9% system uptime** for large-scale security systems across India.  
+      - 🛠 Worked on projects ranging from **Netflix Analytics ETL** to **real-time ingestion with Kafka & Spark on AWS**.  
+
+    ### 🌟 Beyond Work
+    I’m an **adaptable problem solver** who enjoys collaborating with teams, exploring **cloud platforms** (AWS & Azure), 
+    and staying up-to-date with modern **data engineering practices**.  
     Currently, I’m also diving deeper into **LLM use cases** and their integration with data engineering.  
 
     🎵 Outside of my professional world, I am also a **musician** – I love to **sing** and play the **Tabla**, 
@@ -42,13 +49,32 @@ if section == "About Me":
 # --- Experience ---
 elif section == "Experience":
     st.header("💼 Experience")
-    st.subheader("Data Engineer - Jio Platforms Ltd (2.8 years)")
-    st.write("""
-    - Built **scalable ETL pipelines** for security systems across India.  
-    - Improved **pipeline efficiency by 60%** and query performance by 20%.  
-    - Worked with **Cloudera, Hadoop, Kafka, Spark, Airflow, Docker**.  
-    - Ensured **99.9% uptime** with automation for monitoring and ticketing.  
-    """)
+
+    # ReBIT
+    col1, col2 = st.columns([1, 4])
+    with col1:
+        st.image("images/rebit.jpeg", width=80)   # Add your logo in the images folder
+    with col2:
+        st.subheader("Data Engineer - ReBIT (Aug 2025 – Present)")
+        st.write("""
+        - Working on **secure, large-scale data engineering solutions** for financial systems.  
+        - Focused on **automation, compliance, and scalable pipelines**.  
+        - Enhancing **real-time streaming** and **cloud-native ETL workflows**.  
+        """)
+
+    # Jio
+    col1, col2 = st.columns([1, 4])
+    with col1:
+        st.image("images/Jio.svg", width=80)   # Add your logo in the images folder
+    with col2:
+        st.subheader("Data Engineer - Jio Platforms Ltd (Dec 2022 – Aug 2025)")
+        st.write("""
+        - Built **scalable ETL pipelines** for security systems across India.  
+        - Improved **pipeline efficiency by 60%** and query performance by 20%.  
+        - Worked with **Cloudera, Hadoop, Kafka, Spark, Airflow, Docker**.  
+        - Ensured **99.9% uptime** with automation for monitoring and ticketing.  
+        """)
+
 
 # --- Projects ---
 elif section == "Projects":
@@ -109,6 +135,6 @@ elif section == "Contact":
     st.header("📬 Contact")
     st.write("""
     - 📧 Email: chinmay.joshi@example.com  
-    - 💼 LinkedIn: [linkedin.com/in/chinmayjoshi](https://linkedin.com/in/chinmayjoshi)  
+    - 💼 LinkedIn: [linkedin.com/in/chinmayjoshi](https://linkedin.com/in/chinmay-joshi-7495741b1/)  
     - 🐙 GitHub: [github.com/ChinmayJoshi2411](https://github.com/ChinmayJoshi2411)  
     """)
